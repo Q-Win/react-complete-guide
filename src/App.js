@@ -12,20 +12,26 @@ const app = props => {
     otherState: 'some other value'
   });
 
+  const [otherState, setOtherState] = useState('some other value')
+
+  console.log(personsState, otherState);
+
   const switchNameHandler = () =>{
     // Dont do this this.state.persons[0].name = "Maximilian";
-    this.setState({persons: [
-      {name: 'Maximilian', age: 28},
-      {name: 'Manu', age: 29},
-      {name: 'Steph', age: 27}
-    ]})
-  }
+    setPersonsState({
+      persons: [
+        {name: 'Maximilian', age: 28},
+        {name: 'Manu', age: 29},
+        {name: 'Steph', age: 27}
+      ]
+    });
+  };
 
   return (
     <div className="App">
       <h1> Hi, Im a React App </h1>
       <p> this works </p>
-      <button onClick={this.switchNameHandler}> Switch Name</button>
+      <button onClick={switchNameHandler}> Switch Name</button>
       <Person name ={personsState.persons[0].name} age={personsState.persons[0].age}>My Hobbies: Racing</Person>
       <Person name ={personsState.persons[1].name} age={personsState.persons[1].age}/>
       <Person name ={personsState.persons[2].name} age={personsState.persons[2].age}/>
